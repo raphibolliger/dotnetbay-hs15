@@ -32,6 +32,9 @@ The following products / tools are needed to contribute / fork.
 ## Authors
 * Michael Schnyder
 
+## Editors
+* Raphael Bolliger
+
 ## License
 Licensed under the MIT License
 
