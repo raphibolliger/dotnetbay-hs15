@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DotNetBay.WPF"
+        xmlns:Model="clr-namespace:DotNetBay.Model;assembly=DotNetBay.Model" x:Class="DotNetBay.WPF.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="">
+    <Grid>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="5,30,0,0" VerticalAlignment="Top" Height="22" Width="11">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
+            </DataGrid.Columns>
+            <DataGrid.DataContext>
+                <Model:Auction/>
+            </DataGrid.DataContext>
+        </DataGrid>
+    </Grid>
+</Window>
