@@ -21,6 +21,7 @@ namespace DotNetBay.WPF
 
         public App()
         {
+            AuctionRunner.Start();
             var memberService = new SimpleMemberService(MainRepository);
             var service = new AuctionService(MainRepository, memberService);
 
