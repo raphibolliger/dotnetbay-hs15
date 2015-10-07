@@ -39,5 +39,20 @@ namespace DotNetBay.WPF
             this.DataContext = this;
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var sellView = new SellView();
+            sellView.ShowDialog();
+            dataGrid.Items.Refresh();
+        }
+
+        private void BidButton_Click(object sender, RoutedEventArgs e)
+        {
+            var auction = this.dataGrid.SelectedItem as Auction;
+            var bidView = new BidView(auction);
+            bidView.ShowDialog();
+            dataGrid.Items.Refresh();
+        }
     }
 }

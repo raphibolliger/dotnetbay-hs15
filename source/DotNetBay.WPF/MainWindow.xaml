@@ -14,24 +14,24 @@
     </Window.Resources>
 
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75"/>
-        <DataGrid x:Name="dataGrid" Margin="5,30,10,10" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" SelectionMode="Single" ItemsSource="{Binding Path=Auctions}">
+        <Button x:Name="SellButton" Content="New Auction" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <DataGrid x:Name="dataGrid" Margin="10,30,10,10" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" ItemsSource="{Binding Path=Auctions}" BorderThickness="1" IsSynchronizedWithCurrentItem="True" AlternationCount="2" HorizontalGridLinesBrush="#FFE6E7E9" VerticalGridLinesBrush="#FFE6E7E9" CanUserReorderColumns="False" CanUserSortColumns="False" RowDetailsVisibilityMode="Collapsed" Padding="0" RowHeight="23" AlternatingRowBackground="#FFF3F1F1" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Title" Binding="{Binding Path=Title}" />
                 <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Path=IsRunning, Converter={StaticResource BooleanToStatusConverter}}" />
                 <DataGridTextColumn Width="*" Header="Start Price" Binding="{Binding Path=StartPrice}" />
                 <DataGridTextColumn Width="*" Header="Current Price" Binding="{Binding Path=CurrentPrice}" />
-                <DataGridTextColumn Width="*" Header="Bids" Binding="{Binding Path=Bids}" />
+                <DataGridTextColumn Width="*" Header="Bids" Binding="{Binding Path=Bids.Count}" />
                 <DataGridTextColumn Width="*" Header="Starts" Binding="{Binding Path=StartDateTimeUtc}" />
                 <DataGridTextColumn Width="*" Header="Ends" Binding="{Binding Path=EndDateTimeUtc}" />
-                <DataGridTextColumn Width="*" Header="Seller" Binding="{Binding Path=Seller}" />
+                <DataGridTextColumn Width="*" Header="Seller" Binding="{Binding Path=Seller.DisplayName}" />
                 <DataGridTextColumn Width="*" Header="Current Winner" />
                 <DataGridTextColumn Width="*" Header="Closed" Binding="{Binding Path=IsClosed}" />
                 <DataGridTextColumn Width="*" Header="Winner" Binding="{Binding Path=Winner}" />
-                <DataGridTemplateColumn Width="*" IsReadOnly="True">
+                <DataGridTemplateColumn Width="*" Header="Place Bid">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Background="Green" Visibility="{Binding Path=IsRunning, Converter={StaticResource BooleanToVisibility}}">
+                            <Button x:Name="BidButton" Background="Green" Click="BidButton_Click">
                                 Buy
                             </Button>
                         </DataTemplate>

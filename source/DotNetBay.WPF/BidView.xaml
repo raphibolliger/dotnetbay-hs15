@@ -1,0 +1,26 @@
+﻿<Window x:Class="DotNetBay.WPF.BidView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DotNetBay.WPF"
+        mc:Ignorable="d"
+        Title="BidView" Height="360" Width="420" MinWidth="420" MinHeight="360">
+    <Grid>
+        <Label x:Name="label" Content="Place Bid For Auction" Margin="10,10,10,0" VerticalAlignment="Top" Padding="0" FontSize="16"/>
+        <Label x:Name="TitelLabel" Content="Title" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" Width="160" Padding="0"/>
+        <Label x:Name="DescriptionLabel" Content="Description" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="160" Padding="0"/>
+        <Label x:Name="StartPriceLabel" Content="Start Price" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="160" Padding="0"/>
+        <Label x:Name="CurrentPriceLabel" Content="Current Price" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" Width="160" Padding="0"/>
+        <Label x:Name="YourBidLabel" Content="Your Bid" HorizontalAlignment="Left" Margin="10,257,0,0" VerticalAlignment="Top" Width="160" Padding="0" FontWeight="Bold" FontSize="13.333" Height="22"/>
+        <Label x:Name="TitelStatusLabel" Content="" Margin="175,166,10,0" VerticalAlignment="Top" Padding="0"/>
+        <Label x:Name="DescriptionStatusLabel" Content="" Margin="175,187,10,0" VerticalAlignment="Top" Padding="0"/>
+        <Label x:Name="StartPriceStatusLabel" Content="" Margin="175,208,10,0" VerticalAlignment="Top" Padding="0"/>
+        <Label x:Name="CurrentPriceStatusLabel" Content="" Margin="175,229,10,0" VerticalAlignment="Top" Padding="0"/>
+        <TextBox x:Name="YourBidTextBox" Height="22" Margin="175,257,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="13.333" VerticalContentAlignment="Center" />
+        <Button x:Name="CancelButton" Content="Cancel" Margin="0,0,10,10" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" />
+        <Button x:Name="PlaceBidButton" Content="Place Bid" Margin="0,0,90,10" FontWeight="Bold" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Bottom" Click="PlaceBidButton_Click"/>
+        <Image x:Name="AuctionImage" Height="125" Margin="10,36,10,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
