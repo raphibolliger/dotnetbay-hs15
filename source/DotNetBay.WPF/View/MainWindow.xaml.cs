@@ -1,24 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using DotNetBay.Core;
-using DotNetBay.Core.Execution;
 using DotNetBay.Model;
 
-namespace DotNetBay.WPF
+namespace DotNetBay.WPF.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -44,7 +29,7 @@ namespace DotNetBay.WPF
         {
             var sellView = new SellView();
             sellView.ShowDialog();
-            dataGrid.Items.Refresh();
+            this.dataGrid.Items.Refresh();
         }
 
         private void BidButton_Click(object sender, RoutedEventArgs e)
@@ -52,7 +37,7 @@ namespace DotNetBay.WPF
             var auction = this.dataGrid.SelectedItem as Auction;
             var bidView = new BidView(auction);
             bidView.ShowDialog();
-            dataGrid.Items.Refresh();
+            this.dataGrid.Items.Refresh();
         }
     }
 }

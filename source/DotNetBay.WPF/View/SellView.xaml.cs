@@ -1,13 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using DotNetBay.Core;
 using DotNetBay.Model;
 using Microsoft.Win32;
 
-namespace DotNetBay.WPF
+namespace DotNetBay.WPF.View
 {
     /// <summary>
     ///     Interaction logic for SellView.xaml
@@ -25,7 +23,7 @@ namespace DotNetBay.WPF
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                ImageTextBox.Text = openFileDialog.FileName;
+                this.ImageTextBox.Text = openFileDialog.FileName;
             }
 
         }
@@ -37,33 +35,33 @@ namespace DotNetBay.WPF
 
             var redBorder = new SolidColorBrush(Colors.Red);
 
-            if (TitleTextBox.Text.Equals(""))
+            if (this.TitleTextBox.Text.Equals(""))
             {
-                TitleTextBox.BorderBrush = redBorder;
+                this.TitleTextBox.BorderBrush = redBorder;
                 return;
             }
-            if (StartPriceTextBox.Text.Equals(""))
+            if (this.StartPriceTextBox.Text.Equals(""))
             {
-                StartPriceTextBox.BorderBrush = redBorder;
+                this.StartPriceTextBox.BorderBrush = redBorder;
                 return;
             }
-            if (ImageTextBox.Text.Equals(""))
+            if (this.ImageTextBox.Text.Equals(""))
             {
-                ImageTextBox.BorderBrush = redBorder;
+                this.ImageTextBox.BorderBrush = redBorder;
                 return;
             }
 
-            var imageBytes = File.ReadAllBytes(ImageTextBox.Text);
+            var imageBytes = File.ReadAllBytes(this.ImageTextBox.Text);
 
             var me = memberService.GetCurrentMember();
-            var price = int.Parse(StartPriceTextBox.Text);
+            var price = int.Parse(this.StartPriceTextBox.Text);
 
             service.Save(new Auction
             {
-                Title = TitleTextBox.Text,
-                Description = DescriptionTextBox.Text,
-                StartDateTimeUtc = StartDatePicker.SelectedDate.Value,
-                EndDateTimeUtc = EndDatePicker.SelectedDate.Value,
+                Title = this.TitleTextBox.Text,
+                Description = this.DescriptionTextBox.Text,
+                StartDateTimeUtc = this.StartDatePicker.SelectedDate.Value,
+                EndDateTimeUtc = this.EndDatePicker.SelectedDate.Value,
                 StartPrice = price,
                 CurrentPrice = price,
                 Image = imageBytes,
