@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using DotNetBay.Core;
 using DotNetBay.Model;
@@ -10,13 +11,13 @@ namespace DotNetBay.WPF.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static SimpleMemberService memberService = new SimpleMemberService(App.MainRepository);
-        private static AuctionService service = new AuctionService(App.MainRepository, memberService);
-        private readonly ObservableCollection<Auction> _auctions = new ObservableCollection<Auction>(service.GetAll());
+        private static readonly SimpleMemberService MemberService = new SimpleMemberService(App.MainRepository);
+        private static readonly AuctionService Service = new AuctionService(App.MainRepository, MemberService);
+        private readonly ObservableCollection<Auction> auctions = new ObservableCollection<Auction>(Service.GetAll());
 
         public ObservableCollection<Auction> Auctions
         {
-            get { return this._auctions; }
+            get { return this.auctions; }
         } 
 
         public MainWindow()
@@ -25,11 +26,19 @@ namespace DotNetBay.WPF.View
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void NewAuction_Click(object sender, RoutedEventArgs e)
         {
             var sellView = new SellView();
-            sellView.ShowDialog();
-            this.dataGrid.Items.Refresh();
+            sellView.ShowDialog(); //Blocking
+
+            var allAuctions = Service.GetAll();
+            var newAuctions = allAuctions.Where(a => this.auctions.All(vm => vm != a));
+
+            foreach (var auction in newAuctions)
+            {
+                this.auctions.Add(auction);
+            }
+
         }
 
         private void BidButton_Click(object sender, RoutedEventArgs e)

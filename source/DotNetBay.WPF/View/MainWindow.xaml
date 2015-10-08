@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DotNetBay.WPF"
         xmlns:converter="clr-namespace:DotNetBay.WPF.Converter"
-        d:DataContext="{d:DesignInstance Type=local:MainWindow}"
+        xmlns:view="clr-namespace:DotNetBay.WPF.View"
+        d:DataContext="{d:DesignInstance Type=view:MainWindow}"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="800">
 
@@ -15,7 +15,7 @@
     </Window.Resources>
 
     <Grid>
-        <Button x:Name="SellButton" Content="New Auction" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="SellButton" Content="New Auction" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="75" Click="NewAuction_Click"/>
         <DataGrid x:Name="dataGrid" Margin="10,30,10,10" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" ItemsSource="{Binding Path=Auctions}" BorderThickness="1" IsSynchronizedWithCurrentItem="True" AlternationCount="2" HorizontalGridLinesBrush="#FFE6E7E9" VerticalGridLinesBrush="#FFE6E7E9" CanUserReorderColumns="False" CanUserSortColumns="False" RowDetailsVisibilityMode="Collapsed" Padding="0" RowHeight="23" AlternatingRowBackground="#FFF3F1F1" CanUserResizeRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Title" Binding="{Binding Path=Title}" />
