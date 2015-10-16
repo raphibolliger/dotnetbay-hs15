@@ -14,8 +14,6 @@ namespace DotNetBay.WPF.View
     public partial class SellView : Window
     {
 
-        private readonly SellViewModel viewModel;
-
         public SellView()
         {
             this.InitializeComponent();
@@ -23,31 +21,8 @@ namespace DotNetBay.WPF.View
             var memberService = new SimpleMemberService(App.MainRepository);
             var auctionService = new AuctionService(App.MainRepository, memberService);
 
-            viewModel = new SellViewModel(memberService, auctionService);
-            DataContext = viewModel;
+            DataContext = new SellViewModel(memberService, auctionService);
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == true)
-            {
-                viewModel.Image = openFileDialog.FileName;
-            }
-
-        }
-
-        private void AddAuctionButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (viewModel.SaveAuction())
-            {
-                this.Close();
-            }
-        }
-
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

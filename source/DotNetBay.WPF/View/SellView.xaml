@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DotNetBay.WPF.View"
         xmlns:viewModel="clr-namespace:DotNetBay.WPF.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewModel:SellViewModel}"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
+        x:Name="Window"
         Title="SellView" Height="291.5" Width="311" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
-    <Window.DataContext>
-        <viewModel:SellViewModel/>
-    </Window.DataContext>
 
     <Grid>
         <Label x:Name="HeadingLabel" Content="Add New Auction" Margin="10,5,10,0" VerticalAlignment="Top" Padding="0" FontSize="16"/>
@@ -27,9 +26,9 @@
         <DatePicker SelectedDate="{Binding Start}" DisplayDate="{x:Static system:DateTime.Now}" x:Name="StartDatePicker" Margin="115,152,10,0" VerticalAlignment="Top" Height="18" FirstDayOfWeek="Monday" SelectedDateFormat="Short" Text="f" IsTodayHighlighted="True"/>
         <DatePicker SelectedDate="{Binding End}" DisplayDate="{x:Static system:DateTime.Now}" x:Name="EndDatePicker" Margin="115,175,10,0" VerticalAlignment="Top" Height="18"/>
         <TextBox Text="{Binding Image}" x:Name="ImageTextBox" Margin="115,198,35,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="18" IsEnabled="False"/>
-        <Button x:Name="OpenImageButton" Content="..." Margin="0,198,10,0" VerticalAlignment="Top" Height="18" Click="button_Click" HorizontalAlignment="Right" Width="20"/>
-        <Button x:Name="CancelButton" Content="Cancel" Margin="218,0,12,12" Height="20" VerticalAlignment="Bottom" Click="CancelButton_Click"/>
-        <Button x:Name="AddAuctionButton" Content="Add Auction" Margin="115,0,92,12" Height="20" VerticalAlignment="Bottom" Click="AddAuctionButton_Click"/>
+        <Button x:Name="OpenImageButton" Content="..." Margin="0,198,10,0" VerticalAlignment="Top" Height="18" Command="{Binding LoadImageCommand}" HorizontalAlignment="Right" Width="20"/>
+        <Button x:Name="CancelButton" Content="Cancel" Margin="218,0,12,12" Height="20" VerticalAlignment="Bottom" Command="{Binding CloseWindowCommand}" CommandParameter="{Binding ElementName=Window}" />
+        <Button x:Name="AddAuctionButton" Content="Add Auction" Margin="115,0,92,12" Height="20" VerticalAlignment="Bottom" Command="{Binding SaveAuctionCommand}" CommandParameter="{Binding ElementName=Window}" />
 
     </Grid>
 </Window>

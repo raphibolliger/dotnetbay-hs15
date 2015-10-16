@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DotNetBay.WPF.ViewModel
+namespace DotNetBay.WPF.ViewModel.Common
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
