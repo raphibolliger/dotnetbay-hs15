@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBay.Test", "DotNetBay
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBay.WPF", "DotNetBay.WPF\DotNetBay.WPF.csproj", "{E7ED46BC-4B59-420E-8BBE-56072D24A07F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetBay.Data.EF", "DotNetBay.Data.EF\DotNetBay.Data.EF.csproj", "{A675A17B-4DF3-4F81-AB76-4715EFB5EF6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{E7ED46BC-4B59-420E-8BBE-56072D24A07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7ED46BC-4B59-420E-8BBE-56072D24A07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7ED46BC-4B59-420E-8BBE-56072D24A07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A675A17B-4DF3-4F81-AB76-4715EFB5EF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A675A17B-4DF3-4F81-AB76-4715EFB5EF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A675A17B-4DF3-4F81-AB76-4715EFB5EF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A675A17B-4DF3-4F81-AB76-4715EFB5EF6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

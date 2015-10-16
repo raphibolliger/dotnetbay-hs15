@@ -22,6 +22,7 @@ namespace DotNetBay.WPF
         public App()
         {
             AuctionRunner.Start();
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
     }
 }
