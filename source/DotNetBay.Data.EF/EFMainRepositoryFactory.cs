@@ -1,17 +1,33 @@
-﻿using DotNetBay.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DotNetBay.Interfaces;
 
 namespace DotNetBay.Data.EF
 {
     public class EFMainRepositoryFactory : IRepositoryFactory
     {
+        private List<EFMainRepository> repos = new List<EFMainRepository>();
+
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            foreach (var repo in this.repos)
+            {
+                repo.Database.Delete();
+            }
         }
 
         public IMainRepository CreateMainRepository()
         {
-            return new EFMainRepository();
+            var repo = new EFMainRepository();
+
+            if (!this.repos.Any())
+            {
+                repo.Database.Delete();
+            }
+
+            this.repos.Add(repo);
+
+            return repo;
         }
     }
 }

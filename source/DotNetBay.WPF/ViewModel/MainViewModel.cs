@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using DotNetBay.Core;
-using DotNetBay.Model;
 using DotNetBay.WPF.View;
 using DotNetBay.WPF.ViewModel.Common;
 
@@ -43,6 +41,8 @@ namespace DotNetBay.WPF.ViewModel
             sellView.ShowDialog(); //Blocking
 
             var allAuctions = auctionService.GetAll();
+
+            // TODO: Wiso wird hier ein SQL Script generiert während der ausführung??
             var newAuctions = allAuctions.Where(a => Auctions.All(vm => vm.Auction != a));
 
             foreach (var auction in newAuctions)
