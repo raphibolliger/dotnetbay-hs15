@@ -5,7 +5,8 @@ namespace DotNetBay.Data.EF
 {
     public class MainDbContext : DbContext
     {
-        public MainDbContext() : base("DatabaseConnection")
+        //public MainDbContext() : base("DatabaseConnection")
+        public MainDbContext() : base("AppVeyorDatabase")
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;

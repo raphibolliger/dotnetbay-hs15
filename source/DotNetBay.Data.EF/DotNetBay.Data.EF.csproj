@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201510182147106_AddedEntitys.Designer.cs">
       <DependentUpon>201510182147106_AddedEntitys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510191310350_MemberLocation.cs" />
+    <Compile Include="Migrations\201510191310350_MemberLocation.Designer.cs">
+      <DependentUpon>201510191310350_MemberLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510182147106_AddedEntitys.resx">
       <DependentUpon>201510182147106_AddedEntitys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510191310350_MemberLocation.resx">
+      <DependentUpon>201510191310350_MemberLocation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
