@@ -1,0 +1,109 @@
+﻿@model IEnumerable<DotNetBay.Model.Auction>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Auction
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Start Price
+        </th>
+        <th>
+            Current Price
+        </th>
+        <th>
+            Bids
+        </th>
+        <th>
+            Starts
+        </th>
+        <th>
+            Ends
+        </th>
+        <th>
+            Seller
+        </th>
+        <th>
+            Current Winner
+        </th>
+        <th>
+            Close Date
+        </th>
+        <th>
+            Winner
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @if (item.IsRunning)
+            {
+                @:Running
+            }
+            else if (item.IsClosed)
+            {
+                @:Closed
+            }
+            else
+            {
+                @:Not Started
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bids.Count)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDateTimeUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDateTimeUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seller.DisplayName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActiveBid.Bidder.DisplayName)
+        </td>
+        <td>
+            @if (item.IsClosed)
+            {
+                @Html.DisplayFor(modelItem => item.CloseDateTimeUtc)
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Winner.DisplayName)
+        </td>
+        <td>
+            @if (!item.IsClosed)
+            {
+                @Html.ActionLink("Place Bid", "Create", "Bid", new { auctionId = item.Id }, null)
+            }
+        </td>
+    </tr>
+}
+
+</table>
