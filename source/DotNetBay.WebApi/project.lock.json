@@ -3,6 +3,11 @@
   "version": -9996,
   "targets": {
     ".NETPlatform,Version=v5.0": {
+      "Microsoft.AspNet.WebApi/5.2.3": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.WebHost": "[5.2.3, 5.3.0)"
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.3": {
         "dependencies": {
           "Newtonsoft.Json": "6.0.4",
@@ -18,6 +23,11 @@
       "Microsoft.AspNet.WebApi.Core/5.2.3": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.3"
+        }
+      },
+      "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "[5.2.3, 5.3.0)"
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -264,6 +274,14 @@
     }
   },
   "libraries": {
+    "Microsoft.AspNet.WebApi/5.2.3": {
+      "sha512": "mGBfSy61+2dIdPwgguW8EaCVsbYTwwVHeCc/pVq1PhlZS87ColgJ++Hve40TrX6Dtqde0fo9M1Tt19rXlHC5GA==",
+      "files": [
+        "Microsoft.AspNet.WebApi.5.2.3.nupkg",
+        "Microsoft.AspNet.WebApi.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.nuspec"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.3": {
       "serviceable": true,
       "sha512": "3kiI8peSXbXHDDrRuo+QaX0iCEVRe0nvn2dBDRw656uPX32UalbBlSIDUDlJxu05eau4tnuhsikiUuugvvoUoQ==",
@@ -287,6 +305,17 @@
         "Content/web.config.transform",
         "lib/net45/System.Web.Http.dll",
         "lib/net45/System.Web.Http.xml"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.WebHost/5.2.3": {
+      "serviceable": true,
+      "sha512": "bhm4/BKdS3t6nK2R3NjCpxulcwtMFiHqVBDLuN3W5So1PhZfE+RBs7eVazGOhsEKCk7PoSmiSnl9DG0cpyfHtA==",
+      "files": [
+        "Microsoft.AspNet.WebApi.WebHost.5.2.3.nupkg",
+        "Microsoft.AspNet.WebApi.WebHost.5.2.3.nupkg.sha512",
+        "Microsoft.AspNet.WebApi.WebHost.nuspec",
+        "lib/net45/System.Web.Http.WebHost.dll",
+        "lib/net45/System.Web.Http.WebHost.xml"
       ]
     },
     "Microsoft.Bcl/1.1.9": {
@@ -813,7 +842,8 @@
       "System.Threading >= 4.0.10-beta-23019",
       "System.Runtime >= 4.0.10-beta-23019",
       "Microsoft.CSharp >= 4.0.0-beta-23019",
-      "Microsoft.AspNet.WebApi.Core >= 5.2.3"
+      "Microsoft.AspNet.WebApi.Core >= 5.2.3",
+      "Microsoft.AspNet.WebApi >= 5.2.3"
     ],
     ".NETPlatform,Version=v5.0": []
   }
