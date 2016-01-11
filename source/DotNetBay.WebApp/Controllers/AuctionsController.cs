@@ -26,6 +26,7 @@ namespace DotNetBay.WebApp.Controllers
         // GET: Auctions
         public ActionResult Index()
         {
+            ViewBag.Test = "bla";
             return View(service.GetAll().ToList());
         }
 
